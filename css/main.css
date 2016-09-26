@@ -455,11 +455,11 @@ body {
 .header-inner {
   margin: 0 auto;
   padding: 100px 0 70px;
-  width: 700px;
+  width: 900px;
 }
 @media (min-width: 1600px) {
   .container .header-inner {
-    width: 900px;
+    width: 1100px;
   }
 }
 .main {
@@ -467,11 +467,11 @@ body {
 }
 .main-inner {
   margin: 0 auto;
-  width: 700px;
+  width: 900px;
 }
 @media (min-width: 1600px) {
   .container .main-inner {
-    width: 900px;
+    width: 1100px;
   }
 }
 .footer {
@@ -484,11 +484,11 @@ body {
 .footer-inner {
   box-sizing: border-box;
   margin: 20px auto;
-  width: 700px;
+  width: 900px;
 }
 @media (min-width: 1600px) {
   .container .footer-inner {
-    width: 900px;
+    width: 1100px;
   }
 }
 pre,
@@ -908,7 +908,7 @@ pre .javascript .function {
   display: inline-block;
   vertical-align: top;
   line-height: 36px;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: normal;
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
@@ -1548,7 +1548,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bf90cb;
+  background: #9ec357;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2424,4 +2424,48 @@ hr {
     width: auto;
     text-align: center;
   }
+}
+.header .header-inner {
+  padding: 25px 0px 20px;
+}
+.custom-logo {
+  text-align: left;
+}
+.custom-logo .site-title {
+  font-size: 40px;
+}
+.logo-line-before,
+.logo-line-after {
+  display: none;
+}
+.menu .menu-item a {
+  font-size: 14px;
+}
+.custom-banner {
+  position: relative;
+  height: 400px;
+  background: url("http://192.168.0.7:6600/static/pics/wallpapers/signin001b.jpg") center;
+  padding: 40px;
+  color: #fff;
+}
+.custom-banner .banner-title {
+  display: block;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.custom-banner .banner-content {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+.custom-banner a.button {
+  cursor: default;
+  font-size: 18px;
+  padding: 10px 24px;
+  border: 2px solid #fff;
+  margin-right: 30px;
+  color: #fff;
+}
+.custom-banner a.button:hover {
+  background-color: rgba(255,255,255,0.3);
 }
