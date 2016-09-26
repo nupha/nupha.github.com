@@ -1,0 +1,645 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="入门," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="本实验在3个通道间展开，让nodewox按照预定意图协调设备工作。此称为联动。
+课题
+通常，PaaN设备中有靠近传感器，英文名proximity，此传感器可检测物体的靠近或远离。除了特别”节俭”的，一般手机都有此传感器，如不幸你的PaaN设备无此硬件，则本实验做不成了。
+比如，我这台手机的proximity，当检测到有东西移入约1.5cm内时，会发出信号0；当物体从1.5cm内移出时，发出信号1。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速入门4: 实验2 - 联动">
+<meta property="og:url" content="http://yoursite.com/2016/09/23/start4/index.html">
+<meta property="og:site_name" content="nodewox">
+<meta property="og:description" content="本实验在3个通道间展开，让nodewox按照预定意图协调设备工作。此称为联动。
+课题
+通常，PaaN设备中有靠近传感器，英文名proximity，此传感器可检测物体的靠近或远离。除了特别”节俭”的，一般手机都有此传感器，如不幸你的PaaN设备无此硬件，则本实验做不成了。
+比如，我这台手机的proximity，当检测到有东西移入约1.5cm内时，会发出信号0；当物体从1.5cm内移出时，发出信号1。">
+<meta property="og:image" content="http://yoursite.com/add-link-1.png">
+<meta property="og:image" content="http://yoursite.com/add-link-2.png">
+<meta property="og:image" content="http://yoursite.com/add-link-3.png">
+<meta property="og:image" content="http://yoursite.com/add-link-4.png">
+<meta property="og:image" content="http://yoursite.com/app-add-link-1.png">
+<meta property="og:image" content="http://yoursite.com/app-add-link-2.png">
+<meta property="og:image" content="http://yoursite.com/app-add-link-3.png">
+<meta property="og:image" content="http://yoursite.com/app-add-link-4.png">
+<meta property="og:image" content="http://yoursite.com/chan-config.png">
+<meta property="og:image" content="http://yoursite.com/app-chan-config.png">
+<meta property="og:image" content="http://yoursite.com/app-chan-config-2.png">
+<meta property="og:image" content="http://yoursite.com/phone-proximity-area.png">
+<meta property="og:updated_time" content="2016-09-25T15:06:15.241Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="快速入门4: 实验2 - 联动">
+<meta name="twitter:description" content="本实验在3个通道间展开，让nodewox按照预定意图协调设备工作。此称为联动。
+课题
+通常，PaaN设备中有靠近传感器，英文名proximity，此传感器可检测物体的靠近或远离。除了特别”节俭”的，一般手机都有此传感器，如不幸你的PaaN设备无此硬件，则本实验做不成了。
+比如，我这台手机的proximity，当检测到有东西移入约1.5cm内时，会发出信号0；当物体从1.5cm内移出时，发出信号1。">
+<meta name="twitter:image" content="http://yoursite.com/add-link-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/23/start4/"/>
+
+  <title> 快速入门4: 实验2 - 联动 | nodewox </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">nodewox</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-signin">
+          <a href="https://www.nodewox.org/ui/signin" rel="section">
+            
+            menu.signin
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-register">
+          <a href="https://www.nodewox.org/ui/user/register" rel="section">
+            
+            menu.register
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-quickstart">
+          <a href="/2016/09/23/start1/" rel="section">
+            
+            快速入门
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                快速入门4: 实验2 - 联动
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-23T14:18:04+08:00" content="2016-09-23">
+              2016-09-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/文档/" itemprop="url" rel="index">
+                    <span itemprop="name">文档</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本实验在3个通道间展开，让nodewox按照预定意图协调设备工作。此称为<strong>联动</strong>。</p>
+<h1 id="课题"><a href="#课题" class="headerlink" title="课题"></a>课题</h1><hr>
+<p>通常，PaaN设备中有<strong>靠近传感器</strong>，英文名<strong>proximity</strong>，此传感器可检测物体的靠近或远离。除了特别”节俭”的，一般手机都有此传感器，如不幸你的PaaN设备无此硬件，则本实验做不成了。</p>
+<p>比如，我这台手机的proximity，当检测到有东西移入约1.5cm内时，会发出信号0；当物体从1.5cm内移出时，发出信号1。不同型号手机可能略有差异，但原理相似。</p>
+<blockquote>
+<p>请nodewox实现：当手机检测到有物体移入到监测范围内时，发出振动，并点亮屏幕；而移出时不要。</p>
+</blockquote>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><hr>
+<h2 id="用PC浏览器操作"><a href="#用PC浏览器操作" class="headerlink" title="用PC浏览器操作"></a>用PC浏览器操作</h2><p>点击设备下proximity通道，进入该通道信息，并点击<strong>添加连接</strong>按钮<br><img src="add-link-1.png" alt=""><br>弹出框内列出在同组内，可供连接的候选端口。我们选中<strong>振动</strong>和<strong>唤醒屏幕</strong> 2个通道，按下确定<br><img src="add-link-2.png" alt=""><br>创建连接后，proximity通道信息页面变成这样：<br><img src="add-link-3.png" alt=""><br>然后，我们需要在连接上写点代码 (python)，以确保仅当检测到靠近信号时才触发 <strong>振动</strong> 和<strong>亮屏</strong>，而不是物体离开时。点击连接，打开其代码属性窗口：<br><img src="add-link-4.png" alt=""></p>
+<p>2个连接的代码均为以下内容（假设你已具备python编程知识）:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> link.data[<span class="number">0</span>]==<span class="number">0</span>:  <span class="comment"># 0表示靠近</span></div><div class="line">    link.forward()</div></pre></td></tr></table></figure></p>
+<p>其中，<code>link</code>代表本连接, <code>link.data</code>为传入本连接的数据（发自源端），语句<code>link.forward()</code> 将数据透传到目的端。</p>
+<p>如果连接上无代码设定，则传入数据将透传到目的端。</p>
+<h2 id="用移动管理端操作"><a href="#用移动管理端操作" class="headerlink" title="用移动管理端操作"></a>用移动管理端操作</h2><p>同样的操作，我们在移动端再做一遍。</p>
+<p>逐级进入proximity通道的界面，选择<strong>添加连接</strong>菜单：<br><img src="app-add-link-1.png" alt=""><br>在选择连接对象界面（这里列出了可选的连接端口）选中<code>振动</code>和<code>唤醒屏幕</code>2个随动通道，按下确定按钮。<br><img src="app-add-link-2.png" alt=""><br>连接已创建，这时的proximity通道页面变成以下图示。此界面中，点击某连接项，可进入该连接的属性界面，进行编写代码。<br><img src="app-add-link-3.png" alt=""><br>以下是连接的代码编辑界面（注：代码内容请参考以上文字，而不要以图片为准。因为脚本环境可能已升级，而图片未更新）。<br><img src="app-add-link-4.png" alt=""></p>
+<p>至此，已按要求设置好这个nodewox应用。</p>
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><hr>
+<blockquote>
+<p>一个通道可有若干配置项，PaaN的传感器通道均有一个<strong>启用/Enable</strong>配置项，此开关用于控制该通道是否启用。配置项可通过手工方式修改，也可通过其它设备修改。</p>
+</blockquote>
+<p>因为是以测试为目的，所以PaaN设备中，各传感器通道默认都是关闭的。故启动本应用前，先启用proximity通道。让我们用手工方式开启这个通道。</p>
+<h2 id="从PC浏览器设置通道"><a href="#从PC浏览器设置通道" class="headerlink" title="从PC浏览器设置通道"></a>从PC浏览器设置通道</h2><p><img src="chan-config.png" alt=""><br>按上图所示，此通道是关闭的(false)。请点击<code>false</code>，很快，此字样应变成<code>true</code>，表示通道已启用。若点击false后，迟迟未变成true，表示设备或浏览器未接入nodewox网络，请刷新浏览器，重新接入设备，或者检查你的互联网设施。</p>
+<h2 id="从移动端设置通道"><a href="#从移动端设置通道" class="headerlink" title="从移动端设置通道"></a>从移动端设置通道</h2><p>在移动端修改通道参数的界面如下，请点击<strong>开启</strong>项目。<br><img src="app-chan-config.png" alt=""><br><img src="app-chan-config-2.png" alt=""></p>
+<h2 id="把玩"><a href="#把玩" class="headerlink" title="把玩"></a>把玩</h2><p>手机<strong>靠近传感器</strong>的位置，如图所示，不要弄错。<br><img src="phone-proximity-area.png" alt=""></p>
+<p>一手持PaaN，一手渐次近之。噫～感到振动否？屏幕点亮否？如你所愿否？</p>
+<p>至此，应已感悟到nodewox之精髓 —— <strong>设备协同</strong>，而这一切，均源自你的设计。是也者，庶几 “Software Defined Network” 之谓耶。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/入门/" rel="tag">#入门</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/23/start3/" rel="next" title="快速入门3: 实验1 - 定时">
+                <i class="fa fa-chevron-left"></i> 快速入门3: 实验1 - 定时
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Ray" />
+          <p class="site-author-name" itemprop="name">John Ray</p>
+          <p class="site-description motion-element" itemprop="description">Seriousely interesting</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课题"><span class="nav-number">1.</span> <span class="nav-text">课题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用PC浏览器操作"><span class="nav-number">2.1.</span> <span class="nav-text">用PC浏览器操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用移动管理端操作"><span class="nav-number">2.2.</span> <span class="nav-text">用移动管理端操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#验证"><span class="nav-number">3.</span> <span class="nav-text">验证</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从PC浏览器设置通道"><span class="nav-number">3.1.</span> <span class="nav-text">从PC浏览器设置通道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从移动端设置通道"><span class="nav-number">3.2.</span> <span class="nav-text">从移动端设置通道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#把玩"><span class="nav-number">3.3.</span> <span class="nav-text">把玩</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Ray</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

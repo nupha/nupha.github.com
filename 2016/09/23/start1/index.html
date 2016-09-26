@@ -1,0 +1,676 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="入门," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="简介
+nodewox 是连接智能设备，并协调设备间互动的物联网平台。相较于其它物联网平台，nodewox的精髓在于：
+
+柔性连接 / SDN自定义设备间连接和规则，实现 “Software Defined Network”。
+
+自治互动 / Automated各设备间按既定规则自动地协同交互。
+
+可编程 / Programmable对设备及其连接编程，赋予设备群“智能”。
+
+
+
+简而论之，node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速入门1: 入门须知">
+<meta property="og:url" content="http://yoursite.com/2016/09/23/start1/index.html">
+<meta property="og:site_name" content="nodewox">
+<meta property="og:description" content="简介
+nodewox 是连接智能设备，并协调设备间互动的物联网平台。相较于其它物联网平台，nodewox的精髓在于：
+
+柔性连接 / SDN自定义设备间连接和规则，实现 “Software Defined Network”。
+
+自治互动 / Automated各设备间按既定规则自动地协同交互。
+
+可编程 / Programmable对设备及其连接编程，赋予设备群“智能”。
+
+
+
+简而论之，node">
+<meta property="og:image" content="http://yoursite.com/note.png">
+<meta property="og:image" content="http://yoursite.com/user_register.png">
+<meta property="og:updated_time" content="2016-09-25T14:43:10.769Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="快速入门1: 入门须知">
+<meta name="twitter:description" content="简介
+nodewox 是连接智能设备，并协调设备间互动的物联网平台。相较于其它物联网平台，nodewox的精髓在于：
+
+柔性连接 / SDN自定义设备间连接和规则，实现 “Software Defined Network”。
+
+自治互动 / Automated各设备间按既定规则自动地协同交互。
+
+可编程 / Programmable对设备及其连接编程，赋予设备群“智能”。
+
+
+
+简而论之，node">
+<meta name="twitter:image" content="http://yoursite.com/note.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/23/start1/"/>
+
+  <title> 快速入门1: 入门须知 | nodewox </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">nodewox</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-signin">
+          <a href="https://www.nodewox.org/ui/signin" rel="section">
+            
+            menu.signin
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-register">
+          <a href="https://www.nodewox.org/ui/user/register" rel="section">
+            
+            menu.register
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-quickstart">
+          <a href="/2016/09/23/start1/" rel="section">
+            
+            快速入门
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                快速入门1: 入门须知
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-23T14:18:01+08:00" content="2016-09-23">
+              2016-09-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/文档/" itemprop="url" rel="index">
+                    <span itemprop="name">文档</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><hr>
+<p><strong>nodewox</strong> 是连接智能设备，并协调设备间互动的物联网平台。相较于其它物联网平台，nodewox的精髓在于：</p>
+<ol>
+<li><p><strong>柔性连接 / SDN</strong><br>自定义设备间连接和规则，实现 “Software Defined Network”。</p>
+</li>
+<li><p><strong>自治互动 / Automated</strong><br>各设备间按既定规则自动地协同交互。</p>
+</li>
+<li><p><strong>可编程 / Programmable</strong><br>对设备及其连接编程，赋予设备群“智能”。</p>
+</li>
+</ol>
+<blockquote>
+<p>简而论之，<strong>nodewox = nodes + works</strong>。其中 </p>
+<ul>
+<li><strong>nodes</strong> = 各种设备，实体(Thing)，或者逻辑(Logic)；</li>
+<li><strong>works</strong> = 自主互动，协同工作。</li>
+</ul>
+</blockquote>
+<h1 id="正名"><a href="#正名" class="headerlink" title="正名"></a>正名</h1><hr>
+<p>子曰“名正则言顺”。理解nodewox，应先了解相关概念：</p>
+<h2 id="设备-Thing"><a href="#设备-Thing" class="headerlink" title="设备 (Thing)"></a>设备 (Thing)</h2><p>指可接入 nodewox 网络的“东西”。可以是实体设备，如：灯泡、光谱测试仪、继电器、温湿度传感器、生物信号测试仪、光源等；也可是纯软件的虚拟设备，如：Kalman滤波算法，PID控制算法，低通滤波器，数据转换器，FSM有限状态机等。</p>
+<h2 id="通道-Channel"><a href="#通道-Channel" class="headerlink" title="通道 (Channel)"></a>通道 (Channel)</h2><p>每个设备有1个以上通道，用于实现具体功能。也可说，每个设备都是若干通道的集合。通道按方向分，有“输出”和“输入”两种。输出通道为数据源(Source)，输入通道为执行器(Actuator)。</p>
+<blockquote>
+<p>举例</p>
+<p>安卓手机安装PaaN程序后，可变成nodewox设备。当接入nodewox网络后，可查看到此手机“设备”中包含众多“通道”：接近传感器，陀螺仪传感器，加速度传感器，GPS定位，光强度传感器，电子罗盘，来电事件，拨号，振动，点亮屏幕等（通道多寡，依硬件能力而定，不一而同）。</p>
+<p>以上，各传感器类的通道即是“输出通道”；振动/点亮屏幕/拨号等动作类通道即是“输入通道”。</p>
+</blockquote>
+<h2 id="功能群组-Group"><a href="#功能群组-Group" class="headerlink" title="功能群组 (Group)"></a>功能群组 (Group)</h2><p>从各设备中抽取需要的通道，合成一组，谓之曰“群组”。群内各通道间可设定连接、逻辑、规则等，以构成可实现意图（图灵完备）的体系。</p>
+<blockquote>
+<p>举例</p>
+<p>有一个PaaN手机设备，一个4通道继电器设备。从手机设备中选择“加速度传感器”，“接近传感器”，“振动”通道；4通道继电器设备中选择“1#开关”，“2#开关”，共5个通道组成一个功能群。</p>
+<p>要求此功能群实现以下意图：</p>
+<ol>
+<li>X方向发生大振动（加速度传感器X数值超过15）时，开启1#开关10秒钟；</li>
+<li>有物体靠近手机（接近传感器数据为0）时，开启2#开关1秒，并振动手机。</li>
+</ol>
+</blockquote>
+<h2 id="连接-Link"><a href="#连接-Link" class="headerlink" title="连接 (Link)"></a>连接 (Link)</h2><p>在功能群中，定义2个通道之间信号传递方式。连接有方向性：从“输出”到“输入”。简单连接，即透传数据；智能连接，可写脚本按条件改变数据。</p>
+<p>末了，po 个图以助消化。<br><img src="note.png" alt=""></p>
+<h1 id="启步"><a href="#启步" class="headerlink" title="启步"></a>启步</h1><hr>
+<p>通往nodewox物联网世界的道路，从注册一个账户开始 ——</p>
+<h2 id="用PC浏览器注册"><a href="#用PC浏览器注册" class="headerlink" title="用PC浏览器注册"></a>用PC浏览器注册</h2><p>请用Chrome, Firefox, Edge等现代浏览器(IE不支持)访问 <a href="https://www.nodewox.org/ui/user_register" target="_blank" rel="external">注册页面</a> 。<br><img src="user_register.png" alt=""><br>在此界面中填写一些简单的信息，即可创建一个nodewox.org账户。注册成功后，请登录。</p>
+<h2 id="用移动app注册"><a href="#用移动app注册" class="headerlink" title="用移动app注册"></a>用移动app注册</h2><p>先在手机上安装 <a href="nodewox-app.html">nodewox.org管理应用</a>。目前，此app仅适用于 Android 4.4 以上设备。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/入门/" rel="tag">#入门</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/23/start2/" rel="prev" title="快速入门2: 接入第一台设备">
+                快速入门2: 接入第一台设备 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Ray" />
+          <p class="site-author-name" itemprop="name">John Ray</p>
+          <p class="site-description motion-element" itemprop="description">Seriousely interesting</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正名"><span class="nav-number">2.</span> <span class="nav-text">正名</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#设备-Thing"><span class="nav-number">2.1.</span> <span class="nav-text">设备 (Thing)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通道-Channel"><span class="nav-number">2.2.</span> <span class="nav-text">通道 (Channel)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能群组-Group"><span class="nav-number">2.3.</span> <span class="nav-text">功能群组 (Group)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接-Link"><span class="nav-number">2.4.</span> <span class="nav-text">连接 (Link)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启步"><span class="nav-number">3.</span> <span class="nav-text">启步</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用PC浏览器注册"><span class="nav-number">3.1.</span> <span class="nav-text">用PC浏览器注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用移动app注册"><span class="nav-number">3.2.</span> <span class="nav-text">用移动app注册</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Ray</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,658 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="入门," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="设备即已入网，先来做个最简单的实验 - 定时触发。
+课题
+nodewox可对随动通道(Actuator)设置定时器。所谓随动，也称执行器，是执行某个具体动作的通道，输入型通道都是随动通道(执行器)。
+
+课题要求：让PaaN设备每隔1分钟振动一次。提示：振动通道是一个输入型通道，所以可定时触发。
+
+实现
+在PC浏览器上操作首先进入PaaN设备的振动通道信息页面点击+ 定时按钮，弹出窗口要求设置一些定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速入门3: 实验1 - 定时">
+<meta property="og:url" content="http://yoursite.com/2016/09/23/start3/index.html">
+<meta property="og:site_name" content="nodewox">
+<meta property="og:description" content="设备即已入网，先来做个最简单的实验 - 定时触发。
+课题
+nodewox可对随动通道(Actuator)设置定时器。所谓随动，也称执行器，是执行某个具体动作的通道，输入型通道都是随动通道(执行器)。
+
+课题要求：让PaaN设备每隔1分钟振动一次。提示：振动通道是一个输入型通道，所以可定时触发。
+
+实现
+在PC浏览器上操作首先进入PaaN设备的振动通道信息页面点击+ 定时按钮，弹出窗口要求设置一些定">
+<meta property="og:image" content="http://yoursite.com/add-sched-1.png">
+<meta property="og:image" content="http://yoursite.com/add-sched-2.png">
+<meta property="og:image" content="http://yoursite.com/add-sched-3.png">
+<meta property="og:image" content="http://yoursite.com/app-add-sched-1.png">
+<meta property="og:image" content="http://yoursite.com/app-add-sched-2.png">
+<meta property="og:image" content="http://yoursite.com/app-add-sched-3.png">
+<meta property="og:updated_time" content="2016-09-25T14:45:57.337Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="快速入门3: 实验1 - 定时">
+<meta name="twitter:description" content="设备即已入网，先来做个最简单的实验 - 定时触发。
+课题
+nodewox可对随动通道(Actuator)设置定时器。所谓随动，也称执行器，是执行某个具体动作的通道，输入型通道都是随动通道(执行器)。
+
+课题要求：让PaaN设备每隔1分钟振动一次。提示：振动通道是一个输入型通道，所以可定时触发。
+
+实现
+在PC浏览器上操作首先进入PaaN设备的振动通道信息页面点击+ 定时按钮，弹出窗口要求设置一些定">
+<meta name="twitter:image" content="http://yoursite.com/add-sched-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/23/start3/"/>
+
+  <title> 快速入门3: 实验1 - 定时 | nodewox </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">nodewox</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-signin">
+          <a href="https://www.nodewox.org/ui/signin" rel="section">
+            
+            menu.signin
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-register">
+          <a href="https://www.nodewox.org/ui/user/register" rel="section">
+            
+            menu.register
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-quickstart">
+          <a href="/2016/09/23/start1/" rel="section">
+            
+            快速入门
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                快速入门3: 实验1 - 定时
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-23T14:18:03+08:00" content="2016-09-23">
+              2016-09-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/文档/" itemprop="url" rel="index">
+                    <span itemprop="name">文档</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>设备即已入网，先来做个最简单的实验 - 定时触发。</p>
+<h1 id="课题"><a href="#课题" class="headerlink" title="课题"></a>课题</h1><hr>
+<p>nodewox可对<strong>随动通道(Actuator)</strong>设置定时器。所谓<strong>随动</strong>，也称<strong>执行器</strong>，是执行某个具体动作的通道，<strong>输入型通道</strong>都是随动通道(执行器)。</p>
+<blockquote>
+<p>课题要求：让PaaN设备每隔1分钟振动一次。<br>提示：<strong>振动通道</strong>是一个输入型通道，所以可定时触发。</p>
+</blockquote>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><hr>
+<h2 id="在PC浏览器上操作"><a href="#在PC浏览器上操作" class="headerlink" title="在PC浏览器上操作"></a>在PC浏览器上操作</h2><p>首先进入PaaN设备的<strong>振动</strong>通道信息页面<br><img src="add-sched-1.png" alt=""><br>点击<strong>+ 定时</strong>按钮，弹出窗口要求设置一些定时器的属性。目前定时器有2种模式: </p>
+<ol>
+<li>每隔N分钟/小时循环触发</li>
+<li>固定在每天hh:mm触发</li>
+</ol>
+<p>请选择<code>每隔N分钟</code>，并将<code>间隔</code>设置为<code>1</code>，这样就表示每隔1分钟触发一次。因为<strong>振动</strong>通道不需要数据，所以<code>数据</code>属性不填。<br><img src="add-sched-2.png" alt=""><br>定时器添加成功后的界面<br><img src="add-sched-3.png" alt=""><br>关于删除定时器的方法：在界面中勾上要删除的定时器项，会出现<strong>删除选中项</strong>的按钮，点击便是。</p>
+<h2 id="在移动app上操作"><a href="#在移动app上操作" class="headerlink" title="在移动app上操作"></a>在移动app上操作</h2><p>以下介绍在移动端如何操作：</p>
+<ol>
+<li>在<strong>我的设备</strong>列表中找到PaaN设备，点击进入设备信息界面</li>
+<li>点击<strong>振动通道</strong>，进入通道信息界面</li>
+<li>在振动通道信息界面，点击<strong>添加定时器</strong>菜单，进入定时器添加界面</li>
+<li>填写定时属性，按确定按钮</li>
+<li>在通道信息界面可看到刚创建的定时器</li>
+</ol>
+<p>上图:<br><img src="app-add-sched-1.png" alt=""><br><img src="app-add-sched-2.png" alt=""><br><img src="app-add-sched-3.png" alt=""></p>
+<h1 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h1><hr>
+<p>检验这个实验很简单，将PaaN设备拿在手中。自添加定时器成功，等1分钟后，设备会振动一下，再隔1分钟，再振动… 直到你将设备下线，或删除定时器。</p>
+<p>One more thing… 实验即已成功，别忘记删除你的定时器。</p>
+<h1 id="PS-感言"><a href="#PS-感言" class="headerlink" title="PS. 感言"></a>PS. 感言</h1><hr>
+<p>我曾遇到过一个恶劣的设备，几年前运营商捆绑赠送。其质量极其糟糕，实验中始终不能振动，而换其它机器则是好的。百思不得其解，最后发现它的振动器根本不能用！厂商名号就不公开了。</p>
+<p>在硬件世界混，遇机不淑即坑爹又误事。同学们留心～</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/入门/" rel="tag">#入门</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/23/start2/" rel="next" title="快速入门2: 接入第一台设备">
+                <i class="fa fa-chevron-left"></i> 快速入门2: 接入第一台设备
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/23/start4/" rel="prev" title="快速入门4: 实验2 - 联动">
+                快速入门4: 实验2 - 联动 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="John Ray" />
+          <p class="site-author-name" itemprop="name">John Ray</p>
+          <p class="site-description motion-element" itemprop="description">Seriousely interesting</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#课题"><span class="nav-number">1.</span> <span class="nav-text">课题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在PC浏览器上操作"><span class="nav-number">2.1.</span> <span class="nav-text">在PC浏览器上操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在移动app上操作"><span class="nav-number">2.2.</span> <span class="nav-text">在移动app上操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#验证"><span class="nav-number">3.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PS-感言"><span class="nav-number">4.</span> <span class="nav-text">PS. 感言</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Ray</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
